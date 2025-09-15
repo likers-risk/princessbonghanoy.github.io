@@ -18,19 +18,16 @@ html {
   --shadow: rgba(15, 23, 42, 0.1);
   --shadow-hover: rgba(15, 23, 42, 0.15);
 
-  /* Brand colors remain consistent */
   --brand: #5170ff;
   --brand-dark: #3b56d4;
   --brand-light: #8fa4ff;
   --accent: #ff66c4;
   --accent-light: #ffb3e0;
 
-  /* Success, warning, error colors */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
 
-  /* Sizing variables */
   --radius: 14px;
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -138,7 +135,6 @@ a:hover {
   top: var(--space-2);
 }
 
-/* Enhanced Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -236,7 +232,7 @@ a:hover {
   color: white;
 }
 
-/* Enhanced Theme Toggle */
+/* Theme Toggle */
 .theme-toggle {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -264,7 +260,6 @@ a:hover {
   transform: scale(0.95);
 }
 
-/* Enhanced Hero Section */
 .hero {
   padding: calc(var(--space-6) + 8vh) 0 var(--space-6);
   position: relative;
@@ -347,7 +342,6 @@ a:hover {
   box-shadow: 0 25px 50px var(--shadow-hover), 0 0 0 1px var(--brand);
 }
 
-/* Enhanced Buttons */
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -406,7 +400,6 @@ a:hover {
   border-color: var(--brand);
 }
 
-/* Enhanced Sections */
 .about {
   background: var(--panel);
   border-top: 1px solid var(--border);
@@ -441,7 +434,6 @@ h2::after {
   border-radius: 2px;
 }
 
-/* Enhanced Cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -514,7 +506,6 @@ h2::after {
   flex-grow: 1;
 }
 
-/* Enhanced Skills */
 .chips {
   list-style: none;
   padding: 0;
@@ -568,7 +559,6 @@ h2::after {
   color: var(--brand);
 }
 
-/* Enhanced Contact */
 address {
   font-style: normal;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
@@ -582,7 +572,6 @@ address a {
   word-break: break-word;
 }
 
-/* Enhanced Footer */
 .site-footer {
   text-align: center;
   color: var(--muted);
@@ -593,7 +582,6 @@ address a {
   transition: var(--transition);
 }
 
-/* Enhanced Edit Functionality */
 [contenteditable="true"] {
   outline: 2px dashed var(--brand);
   background: var(--bg-secondary);
@@ -630,7 +618,6 @@ address a {
   background: #059669;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .container {
     padding: 0 var(--space-3);
@@ -770,7 +757,6 @@ address a {
   }
 }
 
-/* Accessibility and Preference Handling */
 @media (prefers-contrast: high) {
   :root {
     --border: #000000;
@@ -797,7 +783,6 @@ address a {
   }
 }
 
-/* Print styles */
 @media print {
   .site-header,
   .skip-link,

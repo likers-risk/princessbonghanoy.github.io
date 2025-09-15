@@ -1,6 +1,3 @@
-// Interactive Features Implementation
-
-// 1. Theme toggle functionality
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 const body = document.body;
@@ -18,18 +15,15 @@ function updateIcon(theme) {
 
 updateIcon(currentTheme);
 
-// Enhanced Theme Toggle with Animation
 themeToggle.addEventListener("click", () => {
   const currentTheme = body.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  // Add transition class for smooth theme switching
   body.style.transition = "all 0.3s ease";
   body.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
   updateIcon(newTheme);
 
-  // Show theme change notification
   showThemeNotification(newTheme);
 
   setTimeout(() => {
@@ -37,7 +31,6 @@ themeToggle.addEventListener("click", () => {
   }, 300);
 });
 
-// Theme change notification
 function showThemeNotification(theme) {
   const notification = document.createElement("div");
   notification.style.cssText = `
@@ -65,7 +58,6 @@ function showThemeNotification(theme) {
   }, 2000);
 }
 
-// 2. Scroll Progress Bar
 function updateScrollProgress() {
   const scrollProgress = document.getElementById("scrollProgress");
   const totalHeight =
@@ -76,7 +68,6 @@ function updateScrollProgress() {
 
 window.addEventListener("scroll", updateScrollProgress);
 
-// 3. Smooth scrolling navigation with active states
 function updateActiveNavLink() {
   const sections = document.querySelectorAll(".section");
   const navLinks = document.querySelectorAll('.nav a[href^="#"]');
@@ -99,7 +90,6 @@ function updateActiveNavLink() {
 
 window.addEventListener("scroll", updateActiveNavLink);
 
-// 4. Section animations on scroll
 function animateSections() {
   const sections = document.querySelectorAll(".section");
   const observer = new IntersectionObserver(
@@ -118,7 +108,6 @@ function animateSections() {
   });
 }
 
-// 5. Interactive Skills with Progress Bars
 function initializeSkills() {
   const skillItems = document.querySelectorAll("#skillsList li");
 
@@ -133,7 +122,6 @@ function initializeSkills() {
     });
   });
 
-  // Animate skills when section is visible
   const skillsObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -158,7 +146,6 @@ function initializeSkills() {
   }
 }
 
-// 6. Project Modal
 function initializeProjectModal() {
   const cards = document.querySelectorAll(".card");
   const modal = document.getElementById("projectModal");
@@ -209,7 +196,6 @@ function initializeProjectModal() {
     }
   });
 
-  // Close modal with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.style.display === "flex") {
       modal.style.display = "none";
@@ -217,7 +203,6 @@ function initializeProjectModal() {
   });
 }
 
-// 7. Typing Animation for Hero Title
 function initializeTypingAnimation() {
   const titleElement = document.getElementById("intro-title");
   const originalText = titleElement.textContent;
@@ -237,7 +222,6 @@ function initializeTypingAnimation() {
   setTimeout(typeWriter, 1000); // Start after 1 second
 }
 
-// 8. Enhanced Card Interactions
 function initializeCardEffects() {
   const cards = document.querySelectorAll(".card");
 
@@ -252,7 +236,6 @@ function initializeCardEffects() {
   });
 }
 
-// Save notification function
 function showSaveNotification() {
   const notification = document.createElement("div");
   const theme = body.getAttribute("data-theme");
@@ -278,9 +261,7 @@ function showSaveNotification() {
   }, 2000);
 }
 
-// Initialize all interactive features
 document.addEventListener("DOMContentLoaded", function () {
-  // Enhanced Edit functionality with better UX
   const editBtn = document.getElementById("editBtn");
   const aboutMe = document.getElementById("aboutMe");
   const editIndicator = aboutMe?.querySelector(".edit-indicator");
@@ -296,13 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
         editBtn.classList.remove("editing");
         if (editIndicator) editIndicator.style.display = "none";
 
-        // Save to localStorage for persistence
         localStorage.setItem("aboutMeContent", aboutMe.innerHTML);
-
-        // Show save confirmation
         showSaveNotification();
 
-        // Remove edit styling
         aboutMe.style.position = "relative";
       } else {
         // Edit mode
@@ -312,10 +289,8 @@ document.addEventListener("DOMContentLoaded", function () {
         editBtn.classList.add("editing");
         if (editIndicator) editIndicator.style.display = "block";
 
-        // Add edit styling
         aboutMe.style.position = "relative";
 
-        // Select all text for easier editing
         const range = document.createRange();
         const selection = window.getSelection();
         range.selectNodeContents(aboutMe);
@@ -324,20 +299,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Load saved content on page load
     const savedContent = localStorage.getItem("aboutMeContent");
     if (savedContent) {
       aboutMe.innerHTML = savedContent;
     }
 
-    // Auto-save on blur when editing
     aboutMe.addEventListener("blur", function () {
       if (this.contentEditable === "true") {
         localStorage.setItem("aboutMeContent", this.innerHTML);
       }
     });
 
-    // Keyboard shortcuts for editing
     aboutMe.addEventListener("keydown", function (e) {
       if (e.ctrlKey || e.metaKey) {
         if (e.key === "s") {
@@ -357,7 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateActiveNavLink();
 });
 
-// Performance optimization: Debounced scroll handler
 let scrollTimeout;
 window.addEventListener("scroll", () => {
   if (scrollTimeout) {
